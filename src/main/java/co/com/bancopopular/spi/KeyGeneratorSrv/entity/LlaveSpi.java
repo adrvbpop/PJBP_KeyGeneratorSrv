@@ -1,28 +1,27 @@
 package co.com.bancopopular.spi.KeyGeneratorSrv.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+//import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Table(name = "LLAVES_SPI")
 public class LlaveSpi {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(name = "NUMERO_LLAVE", unique = true, nullable = false)
+    @Id
+    @Column(name = "NUMERO_LLAVE", nullable = false, unique = true)
     private String numeroLlave;
 
-    @Column(name = "TIPO_LLAVE")
+    @Column(name = "TIPO_LLAVE", nullable = false)
     private String tipoLlave;
 
-    @Column(name = "TIPO_IDENTIFICACION")
+    @Column(name = "TIPO_IDENTIFICACION", nullable = false)
     private String tipoIdentificacion;
 
-    @Column(name = "NUMERO_IDENTIFICACION")
+    @Column(name = "NUMERO_IDENTIFICACION", nullable = false)
     private String numeroIdentificacion;
 
-    @Column(name = "TIPO_DE_PERSONA")
+    @Column(name = "TIPO_DE_PERSONA", nullable = false)
     private String tipoDePersona;
 
     @Column(name = "NOMBRE_PERSONA_JURIDICA")
@@ -40,31 +39,31 @@ public class LlaveSpi {
     @Column(name = "SEGUNDO_APELLIDO_PN")
     private String segundoApellidoPn;
 
-    @Column(name = "NIT_ENTIDAD_EMISORA")
+    @Column(name = "NIT_ENTIDAD_EMISORA", nullable = false)
     private Long nitEntidadEmisora;
 
-    @Column(name = "TIPO_MEDIO_DE_PAGO")
+    @Column(name = "TIPO_MEDIO_DE_PAGO", nullable = false)
     private String tipoMedioDePago;
 
-    @Column(name = "NUMERO_MEDIO_DE_PAGO")
+    @Column(name = "NUMERO_MEDIO_DE_PAGO", nullable = false, precision = 34)
     private Long numeroMedioDePago;
 
-    @Column(name = "FECHA_CREACION")
+    @Column(name = "FECHA_CREACION", nullable = false)
     private String fechaCreacion;
 
     @Column(name = "FECHA_MODIFICACION")
     private String fechaModificacion;
 
-    @Column(name = "ESTADO_DE_LLAVE")
+    @Column(name = "ESTADO_DE_LLAVE", nullable = false)
     private String estadoDeLlave;
 
-    @Column(name = "CODIGO_BANCO_AVAL")
+    @Column(name = "CODIGO_BANCO_AVAL", nullable = false)
     private Integer codigoBancoAval;
 
-    @Column(name = "LLAVE_FAVORITA")
+    @Column(name = "LLAVE_FAVORITA", nullable = false)
     private String llaveFavorita;
 
-    @Column(name = "ACCION")
+    @Column(name = "ACCION", nullable = false)
     private String accion;
 
     @Column(name = "NOMBRE_DE_ARCHIVO")
@@ -79,13 +78,6 @@ public class LlaveSpi {
     public LlaveSpi() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNumeroLlave() {
         return numeroLlave;

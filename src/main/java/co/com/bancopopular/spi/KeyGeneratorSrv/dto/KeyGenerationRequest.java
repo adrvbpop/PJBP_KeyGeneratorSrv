@@ -4,28 +4,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "User entity representing a user in the system")
+@Schema(description = "Entidad del usuario que representa a un usuario en el sistema")
 public class KeyGenerationRequest {
-    @Schema(description = "requestId")
-    private String requestId;
-    @Schema(description = "firstname")
-    private String primerNombre;
-    @Schema(description = "secondName")
-    private String segundoNombre;
-    @Schema(description = "first Last Name")
-    private String primerApellido;
-    @Schema(description = "Second Last Name")
-    private String segundoApellido;
-    @Schema(description = "Type ID of the user")
+
+    @Schema(description = "ID del usuario", example = "123456789", required = true)
     private String numeroIdentificacion;
 
-    public String getRequestId() {
-        return requestId;
-    }
+    @Schema(description = "Tipo de medio de pago del usuario", example = "CreditCard", required = true)
+    private String tipoMediodePago;
 
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
-    }
+    @Schema(description = "Número de medio de pago del usuario", example = "987654321", required = true)
+    private Long numeroMediodePago;
+
+    @Schema(description = "Primer nombre del usuario", example = "John", required = true)
+    private String primerNombre;
+
+    @Schema(description = "Segundo nombre del usuario", example = "Michael")
+    private String segundoNombre;
+
+    @Schema(description = "Primer apellido del usuario", example = "Doe", required = true)
+    private String primerApellido;
+
+    @Schema(description = "Segundo apellido del usuario", example = "Smith")
+    private String segundoApellido;
 
     public String getPrimerNombre() {
         return primerNombre;
@@ -65,5 +66,21 @@ public class KeyGenerationRequest {
 
     public void setNumeroIdentificacion(String numeroIdentificacion) {
         this.numeroIdentificacion = numeroIdentificacion;
+    }
+
+    public String getTipoMediodePago() {
+        return tipoMediodePago;
+    }
+
+    public void setTipoMediodePago(String tipoMediodePago) {
+        this.tipoMediodePago = tipoMediodePago;
+    }
+
+    public Long getNumeroMediodePago() {
+        return numeroMediodePago;
+    }
+
+    public void setNumeroMediodePago(Long numeroMediodePago) {
+        this.numeroMediodePago = numeroMediodePago;
     }
 }

@@ -23,4 +23,16 @@ public interface LlaveSpiRepository extends JpaRepository<LlaveSpi, Long> {
     @Modifying
     @Query("update LlaveSpi l set l.numeroLlave = ?1 where l.numeroIdentificacion = ?2")
     int updateNumeroLlaveByNumeroIdentificacion(String numeroLlave, String numeroIdentificacion);
+
+    Optional<LlaveSpi> findBynumeroIdentificacionAndTipoMedioDePagoAndNumeroMedioDePago
+            (String numeroIdentificacion,
+             String tipoMedioDePago,
+             Long numeroMedioDePago);
+
+    Optional<LlaveSpi> findBynumeroIdentificacionAndTipoIdentificacionAndNumeroMedioDePago
+            (String numeroIdentificacion,
+             String tipoIdentificacion,
+             Long numeroMedioDePago);
+
+    void deleteByNumeroLlave(String numeroLlave);
 }

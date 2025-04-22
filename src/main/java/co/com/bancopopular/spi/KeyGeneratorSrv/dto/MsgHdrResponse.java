@@ -8,16 +8,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "MsgHdrResponse", description = "Encabezado de la respuesta")
+@Schema(description = "Encabezado de la respuesta")
 public class MsgHdrResponse {
 
-    @Schema(description = "Clave generada", example = "12345ABC")
+    @Schema(description  = "Clave generada", example = "12345ABC")
     private String requestId;
 
-    @Schema(description = "Mensaje de respuesta", example = "Operación exitosa")
+    @Schema(description  = "Mensaje de respuesta", example = "Operación exitosa")
     private String mensajeRespuesta;
 
-    @Schema(description = "Código de estado", example = "200")
+    @Schema(description  = "Código de estado", example = "200")
     private int codigoRespuesta;
 
     public String getRequestId() {

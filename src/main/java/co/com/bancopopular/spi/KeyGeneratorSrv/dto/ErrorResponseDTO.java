@@ -6,13 +6,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(description = "Estructura de error")
 public class ErrorResponseDTO {
 
-    @Schema
+    @Schema(description = "Encabezado del mensaje de respuesta", required = true)
     private MsgHdrResponse msgHdrResp;
 
-    @Schema(description = "Código de error HTTP", example = "400")
+    @Schema(description = "Código de error HTTP", example = "400", required = true)
     private int code;
 
-    @Schema(description = "Mensaje de error detallado", example = "Request cannot be empty")
+    @Schema(description = "Mensaje de error detallado", example = "Request cannot be empty", required = true)
     private String message;
 
     public ErrorResponseDTO(int code, String message) {

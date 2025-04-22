@@ -1,3 +1,4 @@
+//Clase utilizada en el controller para el manejo de excepciones
 package co.com.bancopopular.spi.KeyGeneratorSrv.controller;
 
 import co.com.bancopopular.spi.KeyGeneratorSrv.dto.ErrorResponseDTO;
@@ -6,12 +7,12 @@ import co.com.bancopopular.spi.KeyGeneratorSrv.dto.MsgHdrResponse;
 import co.com.bancopopular.spi.KeyGeneratorSrv.util.BusinessException;
 import co.com.bancopopular.spi.KeyGeneratorSrv.util.InternalServerException;
 import co.com.bancopopular.spi.KeyGeneratorSrv.util.NotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler  {

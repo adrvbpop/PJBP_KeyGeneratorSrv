@@ -1,0 +1,88 @@
+
+
+
+
+
+
+
+
+
+
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.bancopopular.spi.KeyGeneratorSrv'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'javax:javaee-api:8.0'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.8.0'
+
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.14.0'
+	implementation group: 'org.bouncycastle', name: 'bcpg-jdk15on', version: '1.47'
+	implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
+	implementation 'com.oracle.database.jdbc:ojdbc8:19.6.0.0'
+
+}
+
+
+test {
+	exclude '**'
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+	systemProperty 'file.encoding', 'UTF-8'
+}
+
+bootRun {
+	jvmArgs = ['-Dfile.encoding=UTF-8']
+}
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+	exclude '**/*Application*.class'
+	exclude '**/ServletInitializer.class'
+}

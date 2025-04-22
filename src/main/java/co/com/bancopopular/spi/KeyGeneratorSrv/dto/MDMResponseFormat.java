@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "Respuesta del servicio Key Generator")
-public class KeyGenerationResponse {
+@Schema(description = "Cuerpo de la respuesta")
+public class MDMResponseFormat {
 
     @Schema(description = "Encabezado de la respuesta", required = true)
     private MsgHdrResponse msgHdrResponse;
 
     @Schema(description = "Cuerpo de la respuesta", required = true)
-    private BodyResponse body;
+    private MDMResponse body;
 
     public MsgHdrResponse getMsgHdrResponse() {
         return msgHdrResponse;
@@ -25,11 +25,13 @@ public class KeyGenerationResponse {
         this.msgHdrResponse = msgHdrResponse;
     }
 
-    public BodyResponse getBody() {
+    public MDMResponse getBody() {
         return body;
     }
 
-    public void setBody(BodyResponse body) {
+    public void setBody(MDMResponse body) {
         this.body = body;
     }
+
+
 }
